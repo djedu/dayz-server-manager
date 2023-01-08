@@ -3,7 +3,10 @@ import { SideNavItems, SideNavSection } from '@modules/navigation/models';
 export const sideNavSections: SideNavSection[] = [
     {
         text: 'CORE',
-        items: ['dashboard'],
+        items: [
+            'dashboard',
+            'servers',
+        ],
     },
     {
         text: 'DETAIL',
