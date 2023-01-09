@@ -18,12 +18,6 @@ const routes: Routes = [
             ),
     },
     {
-        path: 'servers',
-        canActivate: [AuthGuard],
-        loadChildren: () =>
-            import('modules/servers/servers-routing.module').then((m) => m.ServersRoutingModule),
-    },
-    {
         path: 'dashboard/system',
         canActivate: [AuthGuard],
         loadChildren: () =>

@@ -9,8 +9,3 @@ src/config/config.schema.json
 .nyc_output
 coverage
 *.log
-/.vs
-CppProperties.json
-package-lock.json
-ui/package-lock.json
-package-lock.json
