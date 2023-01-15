@@ -185,37 +185,40 @@ export class ManagerController {
 
             // eslint-disable-next-line no-negated-condition
             if (!this.skipInitialCheck && !await this.manager.monitor.isServerRunning()) {
-                this.log.log(LogLevel.IMPORTANT, 'Initially checking SteamCMD, Server Installation and Mods. Please wait. This may take some minutes...');
-                const steamCmdOk = await this.manager.steamCmd.checkSteamCmd();
-                if (!steamCmdOk) {
-                    throw new Error('SteamCMD init failed');
-                }
+// Disabled Init
+                this.log.log(LogLevel.IMPORTANT, 'Skipped init check, disabled in manager-controller.');
+
+//                this.log.log(LogLevel.IMPORTANT, 'Initially checking SteamCMD, Server Installation and Mods. Please wait. This may take some minutes...');
+//                const steamCmdOk = await this.manager.steamCmd.checkSteamCmd();
+//                if (!steamCmdOk) {
+//                    throw new Error('SteamCMD init failed');
+//                }
 
                 // ingame report mod
-                await this.manager.ingameReport.installMod();
+//                await this.manager.ingameReport.installMod();
                 // Server
-                if (!await this.manager.steamCmd.checkServer() || this.manager.config.updateServerOnStartup) {
-                    if (!await this.manager.steamCmd.updateServer()) {
-                        throw new Error('Server installation failed');
-                    }
-                }
-                if (!await this.manager.steamCmd.checkServer()) {
-                    throw new Error('Server installation failed');
-                }
+//                if (!await this.manager.steamCmd.checkServer() || this.manager.config.updateServerOnStartup) {
+//                    if (!await this.manager.steamCmd.updateServer()) {
+//                        throw new Error('Server installation failed');
+//                    }
+//                }
+//                if (!await this.manager.steamCmd.checkServer()) {
+//                    throw new Error('Server installation failed');
+//                }
 
 
                 // Mods
-                if (!await this.manager.steamCmd.checkMods() || this.manager.config.updateModsOnStartup) {
-                    if (!await this.manager.steamCmd.updateMods()) {
-                        throw new Error('Updating Mods failed');
-                    }
-                }
-                if (!await this.manager.steamCmd.installMods()) {
-                    throw new Error('Installing Mods failed');
-                }
-                if (!await this.manager.steamCmd.checkMods()) {
-                    throw new Error('Mod installation failed');
-                }
+//                if (!await this.manager.steamCmd.checkMods() || this.manager.config.updateModsOnStartup) {
+//                    if (!await this.manager.steamCmd.updateMods()) {
+//                        throw new Error('Updating Mods failed');
+//                    }
+//                }
+//                if (!await this.manager.steamCmd.installMods()) {
+//                    throw new Error('Installing Mods failed');
+//                }
+//                if (!await this.manager.steamCmd.checkMods()) {
+//                    throw new Error('Mod installation failed');
+//                }
             } else {
                 this.log.log(LogLevel.IMPORTANT, 'Skipping initial SteamCMD check because the server is already running');
             }

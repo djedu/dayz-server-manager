@@ -170,9 +170,8 @@ export class ServerCfg {
     /**
      * 0 for brighter night setup
      * 1 for darker night setup
-     * Range increased to 500 to acommodate Namalsk survival
      */
-    @Reflect.metadata('config-range', [0, 500])
+    @Reflect.metadata('config-range', [0, 1])
     public lightingConfig: 0 | 1 = 0;
 
     /**
