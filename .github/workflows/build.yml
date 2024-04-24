@@ -9,7 +9,7 @@ on:
       - '*'
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: registry.ej-games.com
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
