@@ -24,6 +24,7 @@
     "build:ui": "del-cli dist/ui && cd ui && npm run build",
     "build:pbo:main": "node scripts/mkdir.js dist/mods/@DayZServerManager/addons && bash -c 'makepbo -P -@=DayZServerManager/Scripts watcher_mod/DayZServerManager/Scripts dist/mods/@DayZServerManager/addons/scripts.pbo'",
     "build:pbo:exp": "node scripts/mkdir.js dist/mods/@DayZServerManagerExpansion/addons && bash -c 'makepbo -P -@=DayZServerManagerExpansion/Scripts watcher_mod/DayZServerManagerExpansion/Scripts dist/mods/@DayZServerManagerExpansion/addons/scripts.pbo'",
+    "build:pbo:logs": "node scripts/mkdir.js dist/mods/@DayZServerManagerExtraLogs/addons && bash -c 'makepbo -P -@=DayZServerManagerExtraLogs/Scripts watcher_mod/DayZServerManagerExtraLogs/Scripts dist/mods/@DayZServerManagerExtraLogs/addons/scripts.pbo'",
     "build:pbo:syberia": "node scripts/mkdir.js dist/mods/@DayZServerManagerSyberia/addons && bash -c 'makepbo -P -@=DayZServerManagerSyberia/Scripts watcher_mod/DayZServerManagerSyberia/Scripts dist/mods/@DayZServerManagerSyberia/addons/scripts.pbo'",
     "build:pbos": "npm-run-all build:pbo:*",
     "pack:windows": "del-cli build/dayz-server-manager* && pkg --out-path build -t node16-win-x64 .",

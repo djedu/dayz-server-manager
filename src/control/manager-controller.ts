@@ -27,6 +27,7 @@ import { DiscordMessageHandler } from '../interface/discord-message-handler';
 import { REST } from '../interface/rest';
 import { MetricsCollector } from '../services/metrics-collector';
 import { IngameREST } from '../interface/ingame-rest';
+import { ExtraLogs } from '../services/extralogs';
 import { SyberiaCompat } from '../services/syberia-compat';
 import { DiscordEventConverter } from '../services/discord-event-converter';
 import { ConfigFileHelper } from '../config/config-file-helper';
@@ -106,6 +107,11 @@ import { ConfigFileHelper } from '../config/config-file-helper';
     {
     token: IngameREST,
     useClass: IngameREST,
+    options: { lifecycle: Lifecycle.Singleton },
+    },
+    {
+    token: ExtraLogs,
+    useClass: ExtraLogs,
     options: { lifecycle: Lifecycle.Singleton },
     },
     {

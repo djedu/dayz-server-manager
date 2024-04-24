@@ -13,6 +13,7 @@ import { LoggerFactory } from '../services/loggerfactory';
 import { inject, injectable, singleton } from 'tsyringe';
 import { Database } from '../services/database';
 import { IngameReport } from '../services/ingame-report';
+import { ExtraLogs } from '../services/extralogs';
 import { FSAPI, InjectionTokens } from '../util/apis';
 import { Paths } from '../services/paths';
 
@@ -38,6 +39,7 @@ export class IngameREST extends IStatefulService {
         private manager: Manager,
         private db: Database,
         private ingameReport: IngameReport,
+        private extraLogs: ExtraLogs,
         private paths: Paths,
         @inject(InjectionTokens.fs) private fs: FSAPI,
     ) {
@@ -129,6 +131,18 @@ export class IngameREST extends IStatefulService {
             async (req, res) => { // NOSONAR
                 try {
                     await this.ingameReport.processIngameReport(typeof req.body === 'string' ? JSON.parse(req.body) : req.body);
+                    res.status(200).send(JSON.stringify({ status: 200 }));
+                } catch {
+                    res.status(500).send(JSON.stringify({ status: 500 }));
+                }
+            },
+        );
+
+        this.express.post(
+            '/extralogs',
+            async (req, res) => { // NOSONAR
+                try {
+                    await this.extraLogs.processExtraLogs(typeof req.body === 'string' ? JSON.parse(req.body) : req.body);
                     res.status(200).send(JSON.stringify({ status: 200 }));
                 } catch {
                     res.status(500).send(JSON.stringify({ status: 500 }));

@@ -1149,6 +1149,11 @@ export class Config {
      */
     public dataDump: boolean = false;
 
+    /**
+     * Send extra logs from the server (Player actions and mod actions).
+     */
+    public extraLogsEnabled: boolean = true;
+
     // /////////////////////////// ServerCfg ///////////////////////////////////////
     /**
      * serverCfg
